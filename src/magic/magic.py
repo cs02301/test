@@ -23,7 +23,7 @@ class Magic:
     def es_primo(self, n):
         if n < 2:
             return False
-        for i in range(2, int(n**0.5) + 1):
+        for i in range(2, int(n ** 0.5) + 1):
             if n % i == 0:
                 return False
         return True
@@ -43,7 +43,7 @@ class Magic:
             fila = [1]
             if triangulo:
                 ultima = triangulo[-1]
-                fila.extend([ultima[j] + ultima[j+1] for j in range(len(ultima)-1)])
+                fila.extend([ultima[j] + ultima[j+1] for j in range(len(ultima) - 1)])
                 fila.append(1)
             triangulo.append(fila)
         return triangulo

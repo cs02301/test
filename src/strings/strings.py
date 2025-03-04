@@ -25,8 +25,9 @@ class Strings:
 
     def contar_consonantes(self, texto):
         count = 0
+        # Se consideran consonantes solo las letras de "bcdfghjklmnpqrstvwxyz"
         for char in texto:
-            if char.isalpha() and char.lower() not in "aeiou":
+            if char.isalpha() and char.lower() in "bcdfghjklmnpqrstvwxyz":
                 count += 1
         return count
 
@@ -47,8 +48,7 @@ class Strings:
     def eliminar_espacios_duplicados(self, texto):
         return re.sub(r' {2,}', ' ', texto)
 
-    # Se cambia el nombre a es_numero_ent para coincidir con el test
-    def es_numero_ent(self, texto):
+    def es_numero_entero(self, texto):
         try:
             int(texto)
             return True
