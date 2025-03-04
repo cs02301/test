@@ -1,4 +1,10 @@
+import re
+
 class Strings:
+    """
+    Clase con métodos para manipulación y operaciones con cadenas de texto.
+    """
+    
     def es_palindromo(self, texto):
         clean = "".join(texto.split()).lower()
         return clean == clean[::-1]
@@ -20,7 +26,7 @@ class Strings:
     def contar_consonantes(self, texto):
         count = 0
         for char in texto:
-            if char.isalpha() and char.lower() not in "aeiou" and char.lower() != "y":
+            if char.isalpha() and char.lower() not in "aeiou":
                 count += 1
         return count
 
@@ -34,20 +40,19 @@ class Strings:
         return len(words)
 
     def palabras_mayus(self, texto):
-        import re
         def cap(match):
             return match.group(0).capitalize()
         return re.sub(r'\b\w+', cap, texto)
 
     def eliminar_espacios_duplicados(self, texto):
-        import re
         return re.sub(r' {2,}', ' ', texto)
 
-    def es_numero_entero(self, texto):
+    # Se cambia el nombre a es_numero_ent para coincidir con el test
+    def es_numero_ent(self, texto):
         try:
             int(texto)
             return True
-        except:
+        except ValueError:
             return False
 
     def cifrar_cesar(self, texto, desplazamiento):
